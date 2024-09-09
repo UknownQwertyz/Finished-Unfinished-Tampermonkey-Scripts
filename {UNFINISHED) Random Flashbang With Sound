@@ -1,0 +1,48 @@
+// ==UserScript==
+// @name         Random Flashbang with Sound
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Randomly flashes the screen (with sound)
+// @author       UnknownQwertyz
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Create an audio element
+    const audioElement = new Audio('https://raw.githubusercontent.com/UknownQwertyz/Flashbang.MP3/main/flashbang-sound-effect-made-with-Voicemod-technology.mp3');
+
+    function playSound() {
+        audioElement.currentTime = 0; // Reset the audio to the beginning
+        audioElement.play();
+    }
+
+    function flashbang() {
+        // Immediately turn the background white
+        document.body.style.transition = 'background-color 0s'; // No transition for immediate white screen
+        document.body.style.backgroundColor = 'rgba(255, 255, 255, 1)'; // White
+
+        // Play sound when flashbang occurs
+        playSound();
+
+        // Reset background color after a brief delay
+        setTimeout(() => {
+            document.body.style.transition = 'background-color 2s ease'; // Smooth transition effect with 2-second duration for fade-out
+            document.body.style.backgroundColor = 'rgba(255, 255, 255, 0)'; // Fade out to transparent
+        }, 4000); // Adjusted delay to match the sound duration
+    }
+
+    function initiateFlashbang() {
+        // Synchronize sound and flashbang to play simultaneously
+        flashbang();
+
+        // Set interval for both flashbang and sound controlled by the initial delay of 30 seconds
+        setInterval(() => {
+            flashbang();
+        }, 30000);
+    }
+
+    initiateFlashbang();
+})();
