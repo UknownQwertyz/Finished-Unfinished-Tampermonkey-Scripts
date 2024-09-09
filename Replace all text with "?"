@@ -1,0 +1,73 @@
+// ==UserScript==
+// @name         Replace All Text with "?"
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Replaces all text on a website with "?"
+// @author       UnknownQwertyz
+// @match        *://*/*
+// @license      none
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+//script running?
+function scriptRunning() {
+    document.getElementById("logo").src = "https://content.presentermedia.com/files/clipart/00001000/1680/stickman_question_mark_thinking_pc_800_wht.png"
+};
+
+
+window.onload = function () {
+    document.title = "‏‏‎ ‎";
+};
+
+
+const newLogo = "https://content.presentermedia.com/files/clipart/00001000/1680/stickman_question_mark_thinking_pc_800_wht.png";
+
+setTimeout(() => {
+  const logo = document.querySelector("img");
+  if (logo) {
+    logo.src = newLogo;
+  }
+}, 2000);
+
+
+const observer = new MutationObserver(mutations => {
+
+  mutations.forEach(mutation => {
+
+    const added = mutation.addedNodes;
+
+    if (added && added.length > 0) {
+
+      try {
+
+        const logo = added[0].querySelector("img");
+
+        if (logo) {
+          logo.src = newLogo;
+        }
+
+      } catch (err) {
+        // Ignore selector error
+      }
+
+    }
+
+  });
+
+});
+    // Select all text nodes on the page
+    const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+
+    let node;
+    while (node = walker.nextNode()) {
+        node.nodeValue = "?";
+    }
+})();
