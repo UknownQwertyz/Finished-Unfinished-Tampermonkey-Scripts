@@ -5,8 +5,10 @@
 // @description  Replaces all text on a website with "?"
 // @author       UnknownQwertyz
 // @match        *://*/*
-// @license      none
+// @license      MIT
 // @grant        none
+// @downloadURL https://update.greasyfork.org/scripts/507162/Replace%20All%20Text%20with%20%22%22.user.js
+// @updateURL https://update.greasyfork.org/scripts/507162/Replace%20All%20Text%20with%20%22%22.meta.js
 // ==/UserScript==
 
 (function() {
