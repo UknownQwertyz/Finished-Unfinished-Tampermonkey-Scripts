@@ -1,0 +1,35 @@
+// ==UserScript==
+// @name         Random Browser Zoomer
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Zoom in and back out randomly
+// @author       UnknownQwertyz
+// @match        *://*/*
+// @license      MIT
+// @grant        none
+// @downloadURL https://update.greasyfork.org/scripts/507154/Random%20Browser%20Zoomer.user.js
+// @updateURL https://update.greasyfork.org/scripts/507154/Random%20Browser%20Zoomer.meta.js
+// ==/UserScript==
+
+(function() { // This is an Immediately Invoked Function Expression (IIFE). It runs the code inside as soon as the script loads.
+    'use strict'; // Enables strict mode, which helps catch common coding mistakes and prevents the use of unsafe JavaScript features.
+
+    // Function to set specific zoom level
+    function setZoom(level) { // Defines a function called setZoom that takes one argument, 'level', which represents the zoom scale.
+        document.body.style.zoom = level; // Sets the zoom level of the body element on the webpage to the value passed in 'level'.
+    }
+
+    // Call the setZoom function to zoom in and out
+    function zoomInOut() { // Defines a function called zoomInOut, which handles the logic for zooming in and out.
+        // Zoom in to 250% immediately
+        setZoom(2.5); // Calls the setZoom function and passes 2.5 as the zoom level, which translates to 250% zoom.
+
+        // Zoom back to 100% immediately after 500 milliseconds
+        setTimeout(function() { // Sets a delay (timeout) for executing a function after 500 milliseconds (0.5 seconds).
+            setZoom(1); // After 500 milliseconds, it resets the zoom level back to 100% (default).
+        }, 500); // 500 milliseconds is the delay before the zoom resets to 100%.
+    }
+
+    // Set interval to zoom in and out every 500 milliseconds
+    setInterval(zoomInOut, 500); // Repeatedly calls the zoomInOut function every 500 milliseconds (0.5 seconds).
+})();
