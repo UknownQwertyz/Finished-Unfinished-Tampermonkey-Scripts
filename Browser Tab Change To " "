@@ -1,0 +1,62 @@
+// ==UserScript==
+// @name         Browser Tab Change
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Changes Tab Browser name to an invisible character
+// @author       UnknownQwertyz
+// @match        *://*/*
+// @match        https://search.yahoo.com/newtab
+// @match        https://www.metager.org/newtab
+// @match        https://www.swisscows.com/newtab
+// @match        https://www.you.com/newtab
+// @match        https://infinitynewtab.com
+// @match        https://momentumdash.com/newtab
+// @match        https://tab.gladly.io/newtab
+// @match        https://tab.battleforthenet.com/newtab
+// @match        https://speedtest.xfinity.com/newtab
+// @match        https://www.protopage.com/newtab
+// @match        https://tabforacause.org/newtab
+// @match        https://www.ask.com/newtab
+// @match        https://www.aol.com/newtab
+// @match        https://www.baiduu.com/newtab
+// @match        https://www.yandex.com/newtab
+// @match        https://www.dogpile.com/newtab
+// @match        https://www.neeva.com/newtab
+// @match        https://my.firefox.com/newtab
+// @match        https://portal.opera.com/newtab
+// @match        https://newtab.reddit.com
+// @match        https://www.start.me/newtab
+// @match        https://www.bing.com/newtab
+// @match        https://www.ecosia.org/newtab
+// @match        https://startpage.com/newtab
+// @match        https://www.qwant.com/newtab
+// @match        https://www.yahoo.com/newtab
+// @match        newtab.com
+// @match        edge://newtab
+// @match        https://search.brave.com/newtab
+// @match        https://duckduckgo.com/newtab
+// @match        https://www.google.com/_/brave/newtab
+// @match        http://*/*
+// @match        brave-new-tab-page
+// @match        chrome://newtab
+// @match        *://*/*
+// @match        https://www.google.com/_/brave/newtab
+// @match        brave://newtab
+// @match        chrome://newtab
+// @match        opera://newtab
+// @match        operagx://newtab
+// @match        opera://new-tab-page/
+// @match        https://www.google.com/_/chrome/newtab
+// @match        about://newtab
+// @license      MIT
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+window.onload = function () {
+    document.title = "‏‏‎ ‎";
+}
+
+})();
